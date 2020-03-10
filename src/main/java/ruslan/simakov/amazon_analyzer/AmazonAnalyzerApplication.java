@@ -8,6 +8,8 @@ public class AmazonAnalyzerApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(AmazonAnalyzerApplication.class, args);
+        AmazonFileReader amazonFileReader = new AmazonFileReader();
+        amazonFileReader.readFromCsvFile();
     }
 
 }
