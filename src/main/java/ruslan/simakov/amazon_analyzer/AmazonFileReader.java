@@ -3,6 +3,9 @@ package ruslan.simakov.amazon_analyzer;
 import java.io.FileReader;
 import java.io.IOException;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class AmazonFileReader {
 
     private static final String PATH_TO_FILE_WITH_DATA = "C:\\Users\\OLESIA\\Desktop\\Reviews.csv";
