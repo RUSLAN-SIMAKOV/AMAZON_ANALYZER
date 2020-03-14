@@ -7,12 +7,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class AmazonAnalyzerApplication {
 
-    @Autowired
-    private static AmazonFileReader amazonFileReader;//видимо статика не избежать
+    private static AmazonFileReader amazonFileReader;
+
+    public AmazonAnalyzerApplication(AmazonFileReader amazonFileReader) {
+        this.amazonFileReader = amazonFileReader;
+    }
 
     static public void main(String[] args) {
 
         SpringApplication.run(AmazonAnalyzerApplication.class, args);
         amazonFileReader.readFromCsvFile();
+        System.out.println("FIN");
     }
 }
