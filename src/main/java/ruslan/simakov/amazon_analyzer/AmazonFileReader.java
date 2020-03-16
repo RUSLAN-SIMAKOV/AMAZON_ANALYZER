@@ -8,7 +8,6 @@ import ruslan.simakov.amazon_analyzer.service.CommentService;
 import java.io.FileReader;
 import java.io.IOException;
 
-
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,14 +15,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class AmazonFileReader {
 
+    private static final String PATH_TO_FILE_WITH_DATA = "C:\\Users\\OLESIA\\Desktop\\Reviews.csv";
+
     @Autowired
     private CommentService commentService;
 
-    private static final String PATH_TO_FILE_WITH_DATA = "C:\\Users\\OLESIA\\Desktop\\Reviews.csv";
-
     public void readFromCsvFile() {
 
-        CSVParser parser = null;
+        CSVParser parser;
         Comment comment;
         try {
             parser = new CSVParser(new FileReader(PATH_TO_FILE_WITH_DATA), CSVFormat.DEFAULT);
@@ -48,7 +47,7 @@ public class AmazonFileReader {
                 commentService.addCommentFromFile(comment);
             }
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+            throw new RuntimeException("Problem with Data file. Parsing not executed!");
         }
     }
 }
