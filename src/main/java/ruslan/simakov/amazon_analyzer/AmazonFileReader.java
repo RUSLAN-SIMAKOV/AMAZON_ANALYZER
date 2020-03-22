@@ -47,7 +47,7 @@ public class AmazonFileReader {
                 commentService.addCommentFromFile(comment);
             }
         } catch (IOException ex) {
-            throw new RuntimeException("Problem with Data file. Parsing not executed!");
+            throw new RuntimeException("Problem with Data file. Parsing not executed!", ex);
         }
     }
 }
